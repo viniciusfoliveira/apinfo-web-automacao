@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import org.openqa.selenium.WebElement;
 
 import br.com.emprego.entidades.Vaga;
+import br.com.emprego.facade.VagaFacade;
 import br.com.emprego.pages.VagaPage;
 import br.com.empregos.dao.VagaDAO;
 
@@ -14,6 +15,8 @@ public class VagaService {
 	private VagaDAO vagasDAO = new 	VagaDAO();
 
 	private VagaPage vagaPage = new VagaPage();
+	
+	private VagaFacade vagaFacade = new VagaFacade(vagaPage);
 
 	public void salvar(Vaga vagas) throws Exception {
 		vagasDAO.salvar(vagas);
@@ -28,11 +31,11 @@ public class VagaService {
 
 		while (paginas <= Integer.parseInt(listaTexto[3])) {
 			
-			vagaPage.esperaElementoSincronismo();
+			vagaPage.getEsperaElementoSincronismo();
 			
 			int i = 0, j = 0;
 
-			for (WebElement elemento : vagaPage.listarVagas()) {
+			for (WebElement elemento : vagaPage.getListarVagas()) {
 
 				Vaga vaga = new Vaga();
 
@@ -44,14 +47,14 @@ public class VagaService {
 
 				vaga.setCargo(vagaPage.getCargo(elemento));
 
-				while (i < vagaPage.listarTodasDescricao(elemento).size()) {
-					vaga.setDescricao(vagaPage.listarTodasDescricao(elemento).get(i).getText());
+				while (i < vagaPage.getListarTodasDescricao(elemento).size()) {
+					vaga.setDescricao(vagaPage.getListarTodasDescricao(elemento).get(i).getText());
 					i++;
 					break;
 				}
 
-				while (j < vagaPage.listarTodosCodigoEmpresa(elemento).size()) {
-					String[] empresas = vagaPage.listarTodosCodigoEmpresa(elemento).get(j).getText().split(" ");
+				while (j < vagaPage.getListarTodosCodigoEmpresa(elemento).size()) {
+					String[] empresas = vagaPage.getListarTodosCodigoEmpresa(elemento).get(j).getText().split(" ");
 					vaga.setEmpresa(empresas[2]);
 					j++;
 					break;
@@ -60,7 +63,7 @@ public class VagaService {
 				this.salvar(vaga);
 			}
 
-			vagaPage.clickPagina();
+			vagaFacade.clickPagina();
 			paginas++;
 		}
 

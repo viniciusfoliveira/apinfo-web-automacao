@@ -12,6 +12,10 @@ public class VagaFacade {
 	
 	public void buscarVagas(String cargo) {
 		vagaPage.setBusca(cargo);
-		vagaPage.clickPesquisa();
+		vagaPage.getPesquisa().click();
+	}
+	
+	public void clickPagina() {
+		vagaPage.getPagina().click();
 	}
 }

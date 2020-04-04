@@ -26,28 +26,30 @@ public class VagaPage {
 		getDriver().findElement(By.id("i-busca")).sendKeys(cargo);
 	}
 
-	public void clickPesquisa() {
-		getDriver().findElement(By.id("btn-busca")).click();
+	public WebElement getPesquisa() {
+		return getDriver().findElement(By.id("btn-busca"));
 	}
 	
-	public void esperaElementoSincronismo() {
+	public WebElement getEsperaElementoSincronismo() {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 30);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.id("vagas")));
+		return wait.until(ExpectedConditions.presenceOfElementLocated(By.id("vagas")));
 	}
 
-	public List<WebElement> listarVagas() {
+	public WebElement getVagas() {
+		return getDriver().findElement(By.id("vagas"));
 
-		WebElement vagas = getDriver().findElement(By.id("vagas"));
-
-		return vagas.findElements(By.className("box-vagas"));
 	}
 	
-	public List<WebElement> listarTodasDescricao(WebElement elemento){
+	public List<WebElement> getListarVagas() {
+		return getVagas().findElements(By.className("box-vagas"));
+	}
+	
+	public List<WebElement> getListarTodasDescricao(WebElement elemento){
 		  return elemento.findElements(By.xpath("//p[@style]"));
 
 	}
 
-	public List<WebElement> listarTodosCodigoEmpresa(WebElement elemento) {
+	public List<WebElement> getListarTodosCodigoEmpresa(WebElement elemento) {
 		return elemento.findElements(By.xpath("//div[@class='texto']/child::p[2]"));
 	}
 
@@ -73,7 +75,7 @@ public class VagaPage {
 	}
 	
 	
-	public void clickPagina() {
-		getDriver().findElement(By.xpath("//input[@value='OK']")).click();
+	public WebElement getPagina() {
+		return getDriver().findElement(By.xpath("//input[@value='OK']"));
 	}
 }
