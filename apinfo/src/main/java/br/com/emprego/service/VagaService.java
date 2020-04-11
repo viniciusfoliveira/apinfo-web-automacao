@@ -5,19 +5,17 @@ import java.text.SimpleDateFormat;
 import org.openqa.selenium.WebElement;
 
 import br.com.emprego.entidades.Vaga;
-import br.com.emprego.facade.VagaFacade;
 import br.com.emprego.pages.VagaPage;
-import br.com.empregos.dao.VagaDAO;
+import br.com.emprego.service.impl.VagaServiceImpl;
+import br.com.empregos.repository.VagaRepository;
 
 public class VagaService {
 
 	
-	private VagaDAO vagasDAO = new 	VagaDAO();
+	private VagaRepository vagasDAO = new  VagaServiceImpl();
 
 	private VagaPage vagaPage = new VagaPage();
 	
-	private VagaFacade vagaFacade = new VagaFacade(vagaPage);
-
 	public void salvar(Vaga vagas) throws Exception {
 		vagasDAO.salvar(vagas);
 	}
@@ -63,7 +61,7 @@ public class VagaService {
 				this.salvar(vaga);
 			}
 
-			vagaFacade.clickPagina();
+			vagaPage.clickPagina();
 			paginas++;
 		}
 

@@ -12,11 +12,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class VagaPage {
 
-	public static void inicializaPagina() {
+	public  void inicializaPagina() {
 		getDriver().get("https://www.apinfo.com/apinfo/");
 	}
 	
-	public static void finalizar() {
+	public  void finalizar() {
 		if (getDriver() != null) {
 			getDriver().quit();
 		}
@@ -77,5 +77,9 @@ public class VagaPage {
 	
 	public WebElement getPagina() {
 		return getDriver().findElement(By.xpath("//input[@value='OK']"));
+	}
+	
+	public void clickPagina() {
+		getPagina().click();
 	}
 }

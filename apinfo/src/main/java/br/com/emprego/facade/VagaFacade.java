@@ -14,8 +14,4 @@ public class VagaFacade {
 		vagaPage.setBusca(cargo);
 		vagaPage.getPesquisa().click();
 	}
-	
-	public void clickPagina() {
-		vagaPage.getPagina().click();
-	}
 }
