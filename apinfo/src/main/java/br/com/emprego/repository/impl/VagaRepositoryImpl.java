@@ -1,4 +1,4 @@
-package br.com.emprego.service.impl;
+package br.com.emprego.repository.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import br.com.emprego.entidades.Vaga;
 import br.com.emprego.utils.Connections;
 import br.com.empregos.repository.VagaRepository;
 
-public class VagaServiceImpl implements VagaRepository{
+public class VagaRepositoryImpl implements VagaRepository{
 
 
 	public void salvar(Vaga vaga) {

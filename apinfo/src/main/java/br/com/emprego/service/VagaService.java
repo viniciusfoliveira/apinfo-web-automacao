@@ -6,13 +6,13 @@ import org.openqa.selenium.WebElement;
 
 import br.com.emprego.entidades.Vaga;
 import br.com.emprego.pages.VagaPage;
-import br.com.emprego.service.impl.VagaServiceImpl;
+import br.com.emprego.repository.impl.VagaRepositoryImpl;
 import br.com.empregos.repository.VagaRepository;
 
 public class VagaService {
 
 	
-	private VagaRepository vagasDAO = new  VagaServiceImpl();
+	private VagaRepository vagasDAO = new  VagaRepositoryImpl();
 
 	private VagaPage vagaPage = new VagaPage();
 	
