@@ -6,8 +6,8 @@ import org.openqa.selenium.WebElement;
 
 import br.com.emprego.entidades.Vaga;
 import br.com.emprego.pages.VagaPage;
+import br.com.emprego.repository.VagaRepository;
 import br.com.emprego.repository.impl.VagaRepositoryImpl;
-import br.com.empregos.repository.VagaRepository;
 
 public class VagaService {
 

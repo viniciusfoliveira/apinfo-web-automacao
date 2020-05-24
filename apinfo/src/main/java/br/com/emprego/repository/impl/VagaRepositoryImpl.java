@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import br.com.emprego.entidades.Vaga;
+import br.com.emprego.repository.VagaRepository;
 import br.com.emprego.utils.Connections;
-import br.com.empregos.repository.VagaRepository;
 
 public class VagaRepositoryImpl implements VagaRepository{
 
